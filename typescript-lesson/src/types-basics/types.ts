@@ -29,3 +29,11 @@ console.log("1");
 setTimeout(() => console.log("2"), 100);
 Promise.resolve().then(() => console.log("3"));
 console.log("4");
+
+//Showing how permissive is JS
+// const number1: number = 10;
+// const number2: number = "10";
+// const result = number1 + number2;
+//eventhough Typescript will show an error,
+//the code will still run since its JS and the result
+// will be "1010" instead of 20.
