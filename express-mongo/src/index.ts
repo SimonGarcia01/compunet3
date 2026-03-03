@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 //Add the routes
-app.use("/student", studentRouter)
+app.use("/students", studentRouter)
 
 //First you got to connect to the db before you start the server, otherwise you might have problems with the connection
 db.then(() => {

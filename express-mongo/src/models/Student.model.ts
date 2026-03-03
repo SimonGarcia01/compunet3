@@ -4,8 +4,8 @@ import mongoose from "mongoose";
 export interface StudentInput {
     name: string;
     age: number;
-    isActive:boolean;
     email: string;
+    //No need for the default of is active because it is already defined in the schema
 }
 
 //This lets you make inserts to the db
@@ -17,7 +17,7 @@ const studentSchema = new mongoose.Schema({
     name: {type: String, required: true},
     email: {type: String, required: true},
     age: {type: Number, required: true},
-    isActive: {type: Boolean, required: true}
+    isActive: {type: Boolean, default: true}
     //The collection option specifies the name of the collection
 }, {collection: "Students"});
 
