@@ -13,16 +13,16 @@ class StudentController {
         }
     }
 
-    // //Get one student by id
-    // public getOne = async (request: Request, response: Response) => {
-    //     const id = this.extractId(request);
+    //Get one student by id
+    public getOne = async (request: Request, response: Response) => {
+        const id = this.extractId(request);
 
-    //     try{
+        try{
 
-    //     }catch(error){
+        }catch(error){
 
-    //     }
-    // }
+        }
+    }
 
     //Create a new student
     public create = async (request: Request, response: Response) => {
@@ -33,6 +33,8 @@ class StudentController {
             response.status(500).json({message: "Error creating student", error});
         }
     }
+
+    //validation method for an id
 }
 //Export the singleton instance of the StudentController
 export const studentController = new StudentController();
