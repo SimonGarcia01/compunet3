@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const connectionString = `mongodb://root:password@localhost:27017`;
+const connectionString = `mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process.env.MONGO_INITDB_ROOT_PASSWORD}@localhost:${process.env.MONGO_PORT}`;
 
 export const db = mongoose.connect(
     connectionString, {dbName: "icesi"}

@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express, { Express } from "express";
 import { db } from "./lib/connectionDb";
 import { studentRouter } from "./routes/student.route";
@@ -18,5 +21,3 @@ db.then(() => {
         console.log(`Server running ${PORT} port`);
     });
 });
-
-

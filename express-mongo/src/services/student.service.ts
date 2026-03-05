@@ -19,8 +19,6 @@ class StudentService {
         const student = StudentModel.create(studentInput);
         return student;
     }
-
-    
 }
 
 //Export the singleton instance of the StudentService
