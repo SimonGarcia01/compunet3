@@ -1,10 +1,12 @@
 import express from "express";
 import { userController } from "./user.controller";
 import { userValidation } from "./validations/user.validations";
+import { authMiddleware } from "../common/middlewares/auth.middleware";
 
 export const router = express.Router();
 
-router.get("/", userController.getAll);
+//Add the authToken middleware to require authorization
+router.get("/", authMiddleware, userController.getAll);
 
 router.get("/:id", userController.getOne);
 

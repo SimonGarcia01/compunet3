@@ -42,5 +42,7 @@
         "moduleDetection": "force",
         "skipLibCheck": true
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
+    //Adding the types file so it know about the new request type
+    "files": ["src/types/index.d.ts"]
 }

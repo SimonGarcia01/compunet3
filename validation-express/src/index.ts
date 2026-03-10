@@ -4,6 +4,7 @@ import { db } from './config/dbConnection';
 import { router as userRouter } from './users/user.route';
 import { router as gameRouter } from './games/game.route';
 import { firstMiddleware } from './common/middlewares/first.middleware';
+import { authRouter } from './auth/auth.route';
 
 const app: Express = express();
 
@@ -14,6 +15,9 @@ const port = process.env.APP_PORT || 3000;
 app.use(firstMiddleware);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//adding the auth router
+app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/games", gameRouter);
 
