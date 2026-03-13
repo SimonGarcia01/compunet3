@@ -1,0 +1,59 @@
+import bcrypt from "bcrypt";
+
+import { UserInput, UserInputUpdate } from "./dto/user.dto";
+import { UserDocument, UserModel } from "./user.model";
+
+class UserService {
+    public async create(userInput: UserInput): Promise<UserDocument> {
+
+        const userExists: UserDocument | null = await this.findByEmail(userInput.email);
+        if (userExists !== null) {
+            throw new ReferenceError("User already exists");
+        }
+        //Problem with the create test, is that we were originally changing the userInput object = not good practice
+        //Now we create a passwor
+        let hashedPassword = null;
+        if (userInput.password) {
+            hashedPassword = await bcrypt.hash(userInput.password, 10);
+        }
+        return UserModel.create({ ...userInput, password: hashedPassword });
+    }
+
+    public findByEmail(email: string, password: boolean = false): Promise<UserDocument | null> {
+        return UserModel.findOne({ email }).select(password ? '+password' : '-password');
+    }
+
+    public async update(id: string, userInput: UserInputUpdate): Promise<UserDocument | null> {
+        try {
+            const user: UserDocument | null = await UserModel.findOneAndUpdate(
+                { _id: id },
+                userInput,
+                { returnOriginal: false }
+            );
+
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public getAll(): Promise<UserDocument[]> {
+        return UserModel.find({ deletedAt: null });
+    }
+
+    public getById(id: string): Promise<UserDocument | null> {
+        return UserModel.findById(id);
+    }
+
+    public async delete(id: string): Promise<boolean> {
+        try {
+            const result = await UserModel.findByIdAndUpdate(id, { deletedAt: new Date() })
+            return result !== null;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+}
+
+export const userService = new UserService();
