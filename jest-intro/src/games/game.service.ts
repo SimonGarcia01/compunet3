@@ -18,7 +18,7 @@ class GamesService {
             const game: GameDocument | null = await GameModel.findOneAndUpdate(
                 { _id: id },
                 gameInput,
-                { returnOriginal: false }
+                { new: true }
             );
 
             return game;
