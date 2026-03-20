@@ -33,3 +33,13 @@ build/
 
 #Coverage
 coverage/
+
+# NestJS / TypeScript artifacts and test outputs
+.nestjs/
+*.tsbuildinfo
+.eslintcache
+.cache/
+
+# Test result files
+test-results/
+.nyc_output/
