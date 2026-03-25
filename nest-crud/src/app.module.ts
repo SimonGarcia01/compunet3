@@ -14,9 +14,11 @@ type SupportedDbTypes = 'mysql' | 'postgres';
     imports: [
         //Import the AuthModule to use the authentication features in the application
         AuthModule,
-        //This is the module for the database connection,
+        //Makes the .env variables available globally in the app
         ConfigModule.forRoot({ isGlobal: true }),
+        //This is the module for the database connection without using a separate Module
         TypeOrmModule.forRootAsync({
+            //Make the .env variables available
             imports: [ConfigModule],
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => ({
