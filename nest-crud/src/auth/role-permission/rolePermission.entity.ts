@@ -1,7 +1,7 @@
 import { JoinColumn, ManyToOne } from 'typeorm';
 
 import { Role } from '../role/role.entity';
-import { Permission } from '../permission/permission';
+import { Permission } from '../permission/permission.entity';
 
 // This represents the intermediate table between roles and permissions
 export class RolePermission {
