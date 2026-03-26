@@ -1,11 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DeleteResult } from 'typeorm';
 
 import { Role } from '../role/role.entity';
+import { RoleService } from '../role/role.service';
 
 import { User } from './user.entity';
-import { UserInput } from './dtos/updateUser.dto';
+import { UserInput, UserInputNameRole } from './dtos/createUser.dto';
 
 @Injectable()
 export class UserService {
@@ -14,6 +15,8 @@ export class UserService {
     constructor(
         @InjectRepository(User) private readonly userRepository: Repository<User>,
         @InjectRepository(Role) private readonly roleRepository: Repository<Role>,
+        //Added the role service
+        private readonly roleService: RoleService,
     ) {}
 
     //All repository methods are async, but if you don't change the output or anything you can just return the promise directly
@@ -49,6 +52,21 @@ export class UserService {
         });
 
         //Now you must save the user into the db
+        return this.userRepository.save(user);
+    }
+
+    //Making the create but with the role name nistead of ID
+    async createWithRoleName(createUserDto: UserInputNameRole) {
+        const role = await this.roleService.findByName(createUserDto.roleName);
+        //This is a nest exception that will return the 404 status
+        if (!role) throw new NotFoundException('Role not found');
+
+        const user = this.userRepository.create({
+            ...createUserDto,
+            //Update the dto so it has the role entity additionally
+            role,
+        });
+
         return this.userRepository.save(user);
     }
 

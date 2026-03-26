@@ -12,6 +12,11 @@ export class RoleService {
         private readonly roleRepository: Repository<Role>,
     ) {}
 
+    //Method to find a role using the name
+    async findByName(name: string) {
+        return this.roleRepository.findOneBy({ name });
+    }
+
     findAll(): Promise<Role[]> {
         return this.roleRepository.find();
     }
