@@ -1,0 +1,1640 @@
+{
+  "info": {
+    "_postman_id": "73ac3fac-b1d5-45fe-a9be-ad3347a11a22",
+    "name": "Nest CRUD Workshop",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43808561",
+    "_collection_link": "https://go.postman.co/collection/43808561-73ac3fac-b1d5-45fe-a9be-ad3347a11a22?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Answer",
+      "item": [
+        {
+          "name": "Answer Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/answer",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "answer"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Answer Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"answer\":  \"Example answer\",\r\n    \"interviewId\":  1,\r\n    \"questionId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/answer",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "answer"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Answer Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/answer/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "answer",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Answer Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"answer\":  \"Updated answer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/answer/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "answer",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Answer Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/answer/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "answer",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Assignment",
+      "item": [
+        {
+          "name": "Assignment Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/assignment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assignment Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\":  1,\r\n    \"userId\":  \"1\",\r\n    \"surveyId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/assignment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assignment Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/assignment/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignment",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assignment Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\":  2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/assignment/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignment",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assignment Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/assignment/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "assignment",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Home-Page",
+      "item": [
+        {
+          "name": "Home-Page Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/home-page",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "home-page"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Home-Page Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"backgroundImage\":  \"https://example.com/bg.jpg\",\r\n    \"welcomeMessage\":  \"Welcome\",\r\n    \"surveyId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/home-page",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "home-page"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Home-Page Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/home-page/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "home-page",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Home-Page Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"welcomeMessage\":  \"Welcome back\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/home-page/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "home-page",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Home-Page Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/home-page/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "home-page",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Interview",
+      "item": [
+        {
+          "name": "Interview Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/interview",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interview"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Interview Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"timeStart\":  \"2026-01-01T10:00:00.000Z\",\r\n    \"timeEnd\":  \"2026-01-01T11:00:00.000Z\",\r\n    \"username\":  \"john.doe\",\r\n    \"institutionId\":  \"INST-001\",\r\n    \"interviewerId\":  \"INT-001\",\r\n    \"surveyId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interview",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interview"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Interview Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/interview/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interview",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Interview Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"timeEnd\":  \"2026-01-01T11:30:00.000Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interview/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interview",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Interview Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/interview/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interview",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Metadata",
+      "item": [
+        {
+          "name": "Metadata Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/metadata",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "metadata"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metadata Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"key\":  \"language\",\r\n    \"value\":  \"en\",\r\n    \"questionId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/metadata",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "metadata"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metadata Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/metadata/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "metadata",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metadata Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"value\":  \"es\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/metadata/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "metadata",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metadata Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/metadata/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "metadata",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Option",
+      "item": [
+        {
+          "name": "Option Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Option A\",\r\n    \"typeId\":  1,\r\n    \"groupId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/option",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Option A Updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/option/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Option-Group",
+      "item": [
+        {
+          "name": "Option-Group Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option-group",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-group"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Group Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Group 1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/option-group",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-group"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Group Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option-group/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-group",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Group Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Group 1 Updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/option-group/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-group",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Group Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option-group/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-group",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Option-Question",
+      "item": [
+        {
+          "name": "Option-Question Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option-question",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-question"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Question Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"questionId\":  1,\r\n    \"optionId\":  1,\r\n    \"groupId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/option-question",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-question"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Question Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option-question/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-question",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Question Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"optionId\":  2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/option-question/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-question",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Option-Question Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/option-question/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "option-question",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Project",
+      "item": [
+        {
+          "name": "Project Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/project",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "project"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Project Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Project 1\",\r\n    \"description\":  \"Main project\",\r\n    \"state\":  \"A\",\r\n    \"sectionId\":  1,\r\n    \"username\":  \"admin\",\r\n    \"password\":  \"secret123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/project",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "project"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Project Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/project/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "project",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Project Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"description\":  \"Updated description\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/project/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "project",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Project Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/project/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "project",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Question",
+      "item": [
+        {
+          "name": "Question Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/question",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "question"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Question Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Question text\",\r\n    \"codQuest\":  \"Q001\",\r\n    \"orderCol\":  1,\r\n    \"questionId\":  1,\r\n    \"typeId\":  1,\r\n    \"sectionId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/question",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "question"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Question Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/question/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "question",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Question Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Updated question\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/question/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "question",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Question Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/question/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "question",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Section",
+      "item": [
+        {
+          "name": "Section Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/section",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "section"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Section Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\":  \"Section 1\",\r\n    \"description\":  \"Section description\",\r\n    \"tail\":  \"tail text\",\r\n    \"orderCol\":  1,\r\n    \"backgroundImage\":  \"https://example.com/section.jpg\",\r\n    \"sectionId\":  1,\r\n    \"typeId\":  1,\r\n    \"surveyId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/section",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "section"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Section Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/section/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "section",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Section Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\":  \"Section 1 Updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/section/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "section",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Section Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/section/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "section",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Survey",
+      "item": [
+        {
+          "name": "Survey Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/survey",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "survey"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Survey Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Survey 2026\",\r\n    \"intro\":  \"Welcome\",\r\n    \"outro\":  \"Thanks\",\r\n    \"validation\":  \"strict\",\r\n    \"imageUrl\":  \"https://example.com/survey.jpg\",\r\n    \"styles\":  \"default\",\r\n    \"projectId\":  1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/survey",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "survey"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Survey Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/survey/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "survey",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Survey Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"Survey 2026 Updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/survey/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "survey",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Survey Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/survey/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "survey",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Type",
+      "item": [
+        {
+          "name": "Type Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/type",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "type"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Type Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":  \"single-choice\",\r\n    \"description\":  \"Single choice\",\r\n    \"tableName\":  \"option\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/type",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "type"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Type Get ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/type/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "type",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Type Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"description\":  \"Single choice updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/type/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "type",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Type Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/type/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "type",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
