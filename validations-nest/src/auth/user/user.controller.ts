@@ -11,11 +11,15 @@ import {
     Headers,
     HttpCode,
     HttpStatus,
+    UseGuards,
     //     UseInterceptors,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 // import { CryptoInterceptor } from '@/common/interceptors/crypto.interceptor';
 import { PositiveIntPipe } from '@/common/pipes/positive-int.pipe';
+import { PermissionsGuard } from '@/common/guards/permission.guard';
+import { Permissions } from '@/common/decorators/permissions.decorator';
 
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -41,6 +45,8 @@ export class UserController {
     }
 
     @Get()
+    @UseGuards(AuthGuard('jwt'), PermissionsGuard)
+    @Permissions('readd')
     @HttpCode(HttpStatus.OK)
     async findAll() {
         try {

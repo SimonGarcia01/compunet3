@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import type { StringValue } from 'ms';
 
 import { UserModule } from './user/user.module';
 import { RoleModule } from './role/role.module';
-import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { JwtStrategy } from './jwt.strategy';
+import { AuthController } from './auth.controller';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
     imports: [
@@ -14,13 +15,15 @@ import { JwtStrategy } from './jwt.strategy';
         RoleModule,
         JwtModule.registerAsync({
             inject: [ConfigService],
-            useFactory: (configService: ConfigService) => ({
-                secret: configService.get('JWT_SECRET'),
-                signOptions: { expiresIn: '1h' },
+            useFactory: (config: ConfigService) => ({
+                secret: config.get<string>('JWT_SECRET') || 'defaultSecret',
+                signOptions: {
+                    expiresIn: config.get<StringValue | number>('JWT_EXPIRES_IN') || '1h',
+                },
             }),
         }),
     ],
-    controllers: [AuthController],
     providers: [AuthService, JwtStrategy],
+    controllers: [AuthController],
 })
 export class AuthModule {}

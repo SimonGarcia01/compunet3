@@ -1,48 +1,33 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import { UserService } from './user/user.service';
-import { UserInputDto } from './dto/user-input.dto';
-import { User } from './entities/user.entity';
+import { UserLoginDto } from './dto/user-login.dto';
 
 @Injectable()
 export class AuthService {
     constructor(
-        private readonly userService: UserService,
-        private readonly jwtService: JwtService,
+        private userService: UserService,
+        private jwtService: JwtService,
     ) {}
 
-    async validateUser(username: string, password: string) {
-        const user: User | null = await this.userService.findByUsername(username);
-        if (!user) {
-            throw new NotFoundException('User not found');
-        }
+    async validateUser(email: string, password: string) {
+        const user = await this.userService.findByEmail(email); // Asegúrate de tener un método `findByEmail` en tu servicio de usuarios
+        if (!user) throw new NotFoundException('User not found');
 
-        if (user.passwordHash !== password) {
-            throw new BadRequestException('Invalid password');
-        }
-
+        const matches = await bcrypt.compare(password, user.passwordHash);
+        if (!matches) throw new UnauthorizedException('Invalid credentials');
+        /* Deberías omitir el password al retornarselo al usuario o,o */
         return user;
     }
 
-    async login(userInputDto: UserInputDto) {
-        const user = await this.validateUser(userInputDto.username, userInputDto.password);
+    async login(userLoginDto: UserLoginDto) {
+        // Asegúrate de tener un DTO para el login que contenga email y password
+        const user = await this.validateUser(userLoginDto.email, userLoginDto.password);
 
-        //Get the permissions from the user
-        //this has to be done with map and not forEach because forEach does not return anything, map returns the array
         const permissions = user.role.rolePermissions.map((rp) => rp.permission.name);
-
-        //make the payload of the token
-        const payload = {
-            permissions,
-            sub: user.id,
-            email: user.email,
-            username: user.username,
-        };
-
-        //Use the jwtService to sign the token and return it
-        return {
-            access_token: this.jwtService.sign(payload),
-        };
+        const payload = { sub: user.id, email: user.email, permissions };
+        return { access_token: this.jwtService.sign(payload) };
     }
 }

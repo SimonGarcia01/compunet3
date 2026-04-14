@@ -1,5 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ConfigService } from '@nestjs/config';
 import { Repository } from 'typeorm';
 
 import { RoleNotFoundException } from '@/common/exceptions/http/role-not-found-exception';
@@ -19,20 +21,8 @@ export class UserService {
         private readonly userRepository: Repository<User>,
         private roleService: RoleService,
         private readonly logger: AppLogger,
+        private readonly configService: ConfigService,
     ) {}
-
-    async findByUsername(username: string): Promise<User | null> {
-        //Look for the user using the username
-        return await this.userRepository.findOne({
-            //This is the where that looks for the user by username
-            where: { username },
-            //This forces it to also fetch the info of the roles and permissions
-            //You have to start with the role and rolePermissions because the user has a relation
-            // with the role and the role has a relation with the permissions which then
-            // allows you to access the permissions of the user
-            relations: ['role', 'role.rolePermissions', 'role.rolePermissions.permission'],
-        });
-    }
 
     async create(createUserDto: CreateUserDto) {
         const role = await this.roleService.findByName(createUserDto.roleName);
@@ -40,11 +30,26 @@ export class UserService {
             throw new RoleNotFoundException(createUserDto.roleName);
         }
 
+        if (!createUserDto.passwordHash) {
+            throw new BadRequestException('Password is required');
+        }
+
+        const saltRounds = parseInt(this.configService.get<string>('SALT_ROUNDS') ?? '10');
+        const passwordHash = await bcrypt.hash(createUserDto.passwordHash, saltRounds);
+
         const newUser = this.userRepository.create({
             ...createUserDto,
+            passwordHash,
             role,
         });
         return await this.userRepository.save(newUser);
+    }
+
+    async findByEmail(email: string): Promise<User | null> {
+        return this.userRepository.findOne({
+            where: { email },
+            relations: ['role', 'role.rolePermissions', 'role.rolePermissions.permission'],
+        });
     }
 
     findAll() {
@@ -52,8 +57,11 @@ export class UserService {
         return this.userRepository.find();
     }
 
-    findOne(id: number) {
-        return this.userRepository.findOne({ where: { id } });
+    findOne(id: number, withRelations = false) {
+        return this.userRepository.findOne({
+            where: { id },
+            relations: withRelations ? ['role', 'role.rolePermissions', 'role.rolePermissions.permission'] : [],
+        });
     }
     // /**
     //  * Find one user with their role
