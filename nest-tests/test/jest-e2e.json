@@ -1,0 +1,18 @@
+{
+    "moduleFileExtensions": [
+        "js",
+        "json",
+        "ts"
+    ],
+    "rootDir": ".",
+    "moduleNameMapper": {
+        "^@/(.*)$": "<rootDir>/../src/$1",
+        "^@auth/(.*)$": "<rootDir>/../src/auth/$1",
+        "^@games/(.*)$": "<rootDir>/../src/games/$1"
+    },
+    "testEnvironment": "node",
+    "testRegex": ".e2e-spec.ts$",
+    "transform": {
+        "^.+\\.(t|j)s$": "ts-jest"
+    }
+}
