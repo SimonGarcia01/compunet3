@@ -1,0 +1,183 @@
+{
+  "info": {
+    "_postman_id": "4f7e710b-749b-4cdb-9000-bc4d069d0d30",
+    "name": "Nest pre-test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43808561",
+    "_collection_link": "https://go.postman.co/collection/43808561-4f7e710b-749b-4cdb-9000-bc4d069d0d30?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Find all players",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/players",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "players"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create player",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"player2\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/players",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "players"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all sessions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "sessions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"playerId1\":1,\r\n    \"playerId2\":2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sessions",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "sessions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Round",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"sessionId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/rounds",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "rounds"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all rounds",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/rounds",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "rounds"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all moves",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/moves",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "moves"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Move",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"moveType\": 1,\r\n    \"playerId\" : 2,\r\n    \"roundId\" : 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/moves",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "moves"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
