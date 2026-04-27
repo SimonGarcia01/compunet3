@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2821704D-D60A-4C98-65BC-DADD0F260C0A" containerWithKeyObject="C039D5EF-DFBC-B580-9D02-EC6323E680D4" localFKIndex="85D0C747-CF8F-A62C-63F2-3A3FBFEBFE2A" name="USERS_BADGES_EXPERIENCE_BADGES_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:21:36 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<referredTableLongName>EXPERIENCE_BADGES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C4840415-C98A-1CC9-24D4-91B743795905</referredTableID>
+<keyObject>395B2678-4C2D-3CDC-429F-2BBEFABBC1EF</keyObject>
+<referredKeyID>395B2678-4C2D-3CDC-429F-2BBEFABBC1EF</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

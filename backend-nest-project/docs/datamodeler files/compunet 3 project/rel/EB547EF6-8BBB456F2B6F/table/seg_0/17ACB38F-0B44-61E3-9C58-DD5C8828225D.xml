@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="17ACB38F-0B44-61E3-9C58-DD5C8828225D" name="USER_ROLES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:27:05 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="05C758F1-FEF7-840F-83B4-D3C8C7674B9E">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:24:50 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERS_id" id="57B0ED78-C945-1E8F-D9D2-35F9D3468233">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:32 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="15EF026E-509E-7CFE-E6D5-3138E04AA472" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="ROLES_id" id="85D39784-6EB5-FBC8-6880-985746FFA454">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:37 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="03B2576E-68C8-0D08-EC94-F3A582355594" referredColumn="4ED19312-239B-4EDD-142E-FFD7548F3060"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="71614EA8-5E75-E44E-FF81-F1D1B393EC2F" name="USER_ROLES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:24:50 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05C758F1-FEF7-840F-83B4-D3C8C7674B9E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="38181B41-7CDC-BD9D-EF8C-C465102DF668" name="USER_ROLES__UN">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:38:19 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57B0ED78-C945-1E8F-D9D2-35F9D3468233"/>
+<colUsage columnID="85D39784-6EB5-FBC8-6880-985746FFA454"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91FB9634-A927-EB3E-EE9F-D6786C4C8460" name="USER_ROLES_USERS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:32 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57B0ED78-C945-1E8F-D9D2-35F9D3468233"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B0E7A785-A94A-BE9B-90A8-4707E973A495" name="USER_ROLES_ROLES_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:37 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85D39784-6EB5-FBC8-6880-985746FFA454"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="107E062C-F6B3-D25C-E65A-B458969DEE84" name="COURSES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:40:45 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="1B7E80A0-A791-B1FC-714E-1AA45F6300A1">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:42:15 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="515D171C-B66A-F10E-91FD-B789F91CD0F2">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:41:02 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="credits" id="AAE79F7C-74A3-48BC-1E19-140C531D751F">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:41:02 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="duration" id="FBDA0D3E-60D4-BDCD-5903-3308B8F17A55">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:41:02 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_date" id="D61C2403-51E8-2056-A302-EC32D84B5CCD">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:41:02 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A50715F2-7492-F9DA-12B4-CE1A83E7AE86" name="COURSES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:42:15 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B7E80A0-A791-B1FC-714E-1AA45F6300A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C039D5EF-DFBC-B580-9D02-EC6323E680D4" name="USERS_BADGES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:19:21 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="8691C1E8-C8BA-35B1-D73E-C188F29FA7DD">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:21:08 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERS_id" id="D1603B66-7370-93AF-33E2-7680DD043FE3">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:21:32 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D6A20245-B1B9-25EF-30D0-5FC2A77B4B40" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="EXPERIENCE_BADGES_id" id="254693F6-B73D-2C0F-A390-E5B002A529AE">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:21:36 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2821704D-D60A-4C98-65BC-DADD0F260C0A" referredColumn="2E8AFC35-8429-8A2D-C5DE-CF6D2052C3F5"/>
+</associations>
+</Column>
+<Column name="date_acquired" id="E7D70FC4-2291-324B-F2BF-9E43E8CCEBCA">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:22:30 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="235C70F1-97FF-FF55-D3D7-F659BC916FB7" name="USERS_BADGES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:21:25 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8691C1E8-C8BA-35B1-D73E-C188F29FA7DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6EF96E51-98DE-8A22-010A-9B66344249BD" name="USERS_BADGES__UN">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:21:47 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D1603B66-7370-93AF-33E2-7680DD043FE3"/>
+<colUsage columnID="254693F6-B73D-2C0F-A390-E5B002A529AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="72AB0F73-422A-E18B-C14A-BF79B44AD2D4" name="USERS_BADGES_USERS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:21:32 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D1603B66-7370-93AF-33E2-7680DD043FE3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="85D0C747-CF8F-A62C-63F2-3A3FBFEBFE2A" name="USERS_BADGES_EXPERIENCE_BADGES_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:21:36 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="254693F6-B73D-2C0F-A390-E5B002A529AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

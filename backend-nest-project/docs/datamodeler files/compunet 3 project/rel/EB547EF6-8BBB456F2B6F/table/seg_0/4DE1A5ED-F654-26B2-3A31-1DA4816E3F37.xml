@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4DE1A5ED-F654-26B2-3A31-1DA4816E3F37" name="PERMISSIONS">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:26:58 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="153E9AE8-3B87-213A-C100-265BFC59B3DD">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:35:30 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="31118C0E-E7D2-67B9-CD25-B00ED3E92968">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:23:34 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="E02F679A-3C0A-8853-190F-EB28A493AD90">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:23:57 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FF9EC4F9-2E85-4F18-002A-1578620BE691" name="PERMISSIONS_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:35:30 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="153E9AE8-3B87-213A-C100-265BFC59B3DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

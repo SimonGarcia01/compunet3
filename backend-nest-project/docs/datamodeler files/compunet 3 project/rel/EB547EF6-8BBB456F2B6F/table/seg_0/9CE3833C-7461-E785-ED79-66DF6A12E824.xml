@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9CE3833C-7461-E785-ED79-66DF6A12E824" name="ROLES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:26:50 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="4ED19312-239B-4EDD-142E-FFD7548F3060">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:35:16 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="C1F9C116-7717-8F90-DCE2-A4A52F400DE4">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:41:54 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="89A4B351-5D8A-5B22-A2E4-93CAE5D5D256">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:24:23 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4177847B-3E3B-259E-DB01-E4E6606F2BE4" name="ROLES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:35:16 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4ED19312-239B-4EDD-142E-FFD7548F3060"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

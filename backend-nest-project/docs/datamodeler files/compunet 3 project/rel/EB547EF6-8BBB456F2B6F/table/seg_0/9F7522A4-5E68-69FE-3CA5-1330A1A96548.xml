@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9F7522A4-5E68-69FE-3CA5-1330A1A96548" name="REPLIES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:48:38 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="3BB3B708-7151-017A-9091-2019459E7F55">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:48:58 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POSTS_id" id="10C3428E-B718-D861-4378-AF036DE78098">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:49:15 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="64ADB80A-30CB-B4A3-6B62-87F10B889D00" referredColumn="4390DB9A-A46E-A6CF-E189-CFFD3926202E"/>
+</associations>
+</Column>
+<Column name="USERS_id" id="A3F8FBD6-1162-E1BE-0EF4-5CB6C886EFC0">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:49:22 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C7B01194-C4D9-04ED-81F2-DE8FC0979DD4" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="reply_message" id="66C0E76F-3A9F-EDB8-8C5C-201120E541B5">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:59:23 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_added" id="24700B7A-09B8-AD54-2E6D-504E02CF26D0">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:59:23 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="likes" id="E844A27B-AD70-2FE8-06EA-A30A79CC75EE">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:08:46 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="approvals" id="E40C0BCA-06C9-C928-3C65-C1E757AAD4BC">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:08:46 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="internal_reply_id" id="7B5AF675-D2C5-EC7A-C280-85F212C3629E">
+<createdBy>kracr</createdBy>
+<createdTime>2026-04-10 19:51:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5D4B41FA-9B7C-199F-31D7-2465DAC75B61" referredColumn="3BB3B708-7151-017A-9091-2019459E7F55"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="228A9EEA-76E5-9585-914D-03BEF0A30213" name="REPLIES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:06:03 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3BB3B708-7151-017A-9091-2019459E7F55"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6C891F88-50C8-65C6-180D-3E050C7BED21" name="REPLIES_POSTS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:49:15 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="10C3428E-B718-D861-4378-AF036DE78098"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="02D71F2E-F4B4-882B-0FCC-FB837B55F279" name="REPLIES_USERS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:49:22 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A3F8FBD6-1162-E1BE-0EF4-5CB6C886EFC0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9E0AE677-4542-9B30-3FC8-793A98AFEDE1" name="REPLIES_REPLIES_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-04-10 19:51:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B5AF675-D2C5-EC7A-C280-85F212C3629E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

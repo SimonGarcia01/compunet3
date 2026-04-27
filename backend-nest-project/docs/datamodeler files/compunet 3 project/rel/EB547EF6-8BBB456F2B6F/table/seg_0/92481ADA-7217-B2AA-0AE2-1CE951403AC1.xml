@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="92481ADA-7217-B2AA-0AE2-1CE951403AC1" name="USERS_COURSES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:41:58 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="EF4106F9-F513-2264-1D6D-AEE1B9732565">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:20:29 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERS_id" id="31F5598B-0BEB-942B-0742-D0E83ACABB3B">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:42:20 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E151CF0F-6015-2F0E-6263-754DAC1AF156" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="COURSES_id" id="8BF44425-0FE6-1B99-CB0A-E10A222BA111">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:42:24 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3F4B0274-B1B7-984C-062D-D23277FA1B1D" referredColumn="1B7E80A0-A791-B1FC-714E-1AA45F6300A1"/>
+</associations>
+</Column>
+<Column name="relation_type" id="4EBE5400-47CC-3BE2-605B-C9DE386D5230">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:48:09 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F401254D-2CAC-4B78-A7B7-687C65C84CA9" name="USERS_COURSES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:20:52 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EF4106F9-F513-2264-1D6D-AEE1B9732565"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CAC7EF1C-9986-A1EC-C764-EC25CFEFE6C7" name="USERS_COURSES__UN">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:20:52 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="31F5598B-0BEB-942B-0742-D0E83ACABB3B"/>
+<colUsage columnID="8BF44425-0FE6-1B99-CB0A-E10A222BA111"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7EE23A14-5EB7-6835-24CE-3A2EE9A23022" name="USERS_COURSES_USERS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:42:20 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="31F5598B-0BEB-942B-0742-D0E83ACABB3B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="20C7D2EF-BD01-F538-1F96-679AF83255A8" name="USERS_COURSES_COURSES_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:42:24 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8BF44425-0FE6-1B99-CB0A-E10A222BA111"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

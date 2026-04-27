@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="02D07AAE-4E9E-5A35-6572-525D24A6A4A4" name="ATTENDANCE_SUPP_SESSIONS">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 20:56:48 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="C2820490-76C9-C25D-23B6-5437C9234949">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:19:52 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="supp_session_id" id="F04EBC5E-577A-B64C-0D19-54EBD0C1A8E4">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:16:20 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="54C8FCE4-BCAF-8753-3923-5DA8EC9108B4" referredColumn="14734BE0-89CC-9A49-22C8-427737CAAD6F"/>
+</associations>
+</Column>
+<Column name="ta_id" id="C0F93BB1-1795-F168-4099-C6F66DBAF3C3">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:09:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CE38463C-420A-164F-672D-2CF6EC86EB25" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="student_id" id="133A90FE-188A-F765-3B59-6C0C3EAE3444">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:16:04 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DCA2A2C8-3AB1-181A-117B-9D1B8C3D087F" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="attendance_notes" id="8C8B9DA5-E03E-1241-2F97-6B5C3B397791">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:03:50 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="additional_homework" id="3AD30159-3045-3DED-D24E-8773E706F84E">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:03:50 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="631281FE-57A1-A4FE-8520-24B33AD4AC06" name="ATTENDANCE_SUPP_SESSIONS_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:19:52 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2820490-76C9-C25D-23B6-5437C9234949"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D70D3205-E5D7-6715-76CB-06A8CFA58072" name="ATTENDANCE_SUPP_SESSIONS__UN">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:19:27 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F04EBC5E-577A-B64C-0D19-54EBD0C1A8E4"/>
+<colUsage columnID="133A90FE-188A-F765-3B59-6C0C3EAE3444"/>
+<colUsage columnID="C0F93BB1-1795-F168-4099-C6F66DBAF3C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5D4C68E9-E22D-54A4-0A48-F3DBBA89136A" name="ATTENDANCE_SUPP_SESSIONS_SUPPLEMENTARY_SESSIONS_FKv1">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:09:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0F93BB1-1795-F168-4099-C6F66DBAF3C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2A5C42EE-1CFD-2F8E-BBBF-3F4D306ACE8A" name="ATTENDANCE_SUPP_SESSIONS_USERS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:16:04 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="133A90FE-188A-F765-3B59-6C0C3EAE3444"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="48E961ED-0219-E7A2-FA1F-66A17EC311E7" name="ATTENDANCE_SUPP_SESSIONS_SUPPLEMENTARY_SESSIONS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:16:20 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F04EBC5E-577A-B64C-0D19-54EBD0C1A8E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

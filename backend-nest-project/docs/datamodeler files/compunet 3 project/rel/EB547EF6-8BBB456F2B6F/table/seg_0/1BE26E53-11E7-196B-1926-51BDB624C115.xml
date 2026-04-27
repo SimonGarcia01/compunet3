@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1BE26E53-11E7-196B-1926-51BDB624C115" name="USERS">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:24:31 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="36C52F14-DA5C-4527-6464-0730CA9F9E6B">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:32:47 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="7B74D47E-FD6C-EA1B-BDD5-5D8BA00E01C2">
+<createdBy>kracr</createdBy>
+<createdTime>2026-04-11 02:01:00 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="DF4CD06D-857D-0055-CDE3-9E541A2F7A59">
+<createdBy>kracr</createdBy>
+<createdTime>2026-04-11 02:01:00 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="first_name" id="A0D992FC-C829-8A49-407F-A39CDB8D32E5">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:18 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="3015F1F9-7E59-7E94-2E14-7B6833755612">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:18 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="profile_pic" id="596A2268-C473-67C7-0856-21BBEF11E430">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:18 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="major_1" id="2C5B48AC-3AED-1849-F180-B75B8AA78231">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:18 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="major_2" id="C856CC2B-3516-C035-41CC-6ABA12AB36E8">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:18 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="xp" id="5DA2794D-AEB1-3C23-990B-EDC7A4568FAD">
+<createdBy>kracr</createdBy>
+<createdTime>2026-04-10 19:50:51 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="level" id="D2E8A068-FABB-76D8-20FD-10DFD7DB7B71">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:18 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DD264DCB-FFC3-D605-8BCB-74625CD9C493" name="USERS_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:32:47 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="721D5640-5980-E02C-4CCF-6862B959A31F" name="USERS__UN">
+<createdBy>kracr</createdBy>
+<createdTime>2026-04-11 02:04:10 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B74D47E-FD6C-EA1B-BDD5-5D8BA00E01C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

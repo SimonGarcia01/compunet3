@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E05090D4-E6D2-835F-ACA6-743273F86A78" name="POSTS">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:47:35 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="4390DB9A-A46E-A6CF-E189-CFFD3926202E">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:48:03 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERS_id" id="4744688B-8906-D6DA-4559-7DCD0B296552">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:48:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C52C76BE-146D-7D11-4090-6D31CE939CDE" referredColumn="36C52F14-DA5C-4527-6464-0730CA9F9E6B"/>
+</associations>
+</Column>
+<Column name="title" id="11C4A277-8B49-EFEB-73D5-16A13D3365BA">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:58:17 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="question" id="B991CA0A-FCD3-1B1A-3DA4-0DA4E81459E0">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:58:17 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_added" id="3570C012-1AB4-D4BF-5459-08AD480DC4F1">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 22:00:12 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="43A01207-7190-C339-D8F6-CD9DAD06F0AF" name="POSTS_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:48:03 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4390DB9A-A46E-A6CF-E189-CFFD3926202E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6C7235FE-5304-B360-D58D-B73D171265C3" name="POSTS_USERS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:48:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4744688B-8906-D6DA-4559-7DCD0B296552"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

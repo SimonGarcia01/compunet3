@@ -1,0 +1,1669 @@
+{
+  "info": {
+    "name": "Scholar Sync API",
+    "description": "Colección de pruebas para Scholar Sync con login JWT y CRUD de entidades principales.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "adminEmail",
+      "value": "dave@example.com",
+      "type": "string"
+    },
+    {
+      "key": "adminPassword",
+      "value": "Password123",
+      "type": "string"
+    },
+    {
+      "key": "createdCourseId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdUserCourseId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdExperienceBadgeId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdUserBadgeId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdSupplementarySessionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdAttendanceSuppSessionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdPostId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdReplyId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{accessToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "0. Auth",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{adminEmail}}\",\n  \"password\": \"{{adminPassword}}\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Login returns 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.test('access_token is present', function () {",
+                  "    pm.expect(response).to.have.property('access_token');",
+                  "});",
+                  "pm.collectionVariables.set('accessToken', response.access_token);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1. Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"frank@example.com\",\n  \"password\": \"Password123\",\n  \"firstName\": \"Frank\",\n  \"lastName\": \"Foster\",\n  \"profilePic\": null,\n  \"major1\": \"Biology\",\n  \"major2\": \"Chemistry\",\n  \"xp\": 60,\n  \"level\": 6\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create User returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdUserId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"AliceUpdated\",\n  \"lastName\": \"AndersonUpdated\",\n  \"xp\": 15,\n  \"level\": 2\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/user/{{createdUserId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "{{createdUserId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Roles",
+      "item": [
+        {
+          "name": "Create Role",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/role",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"TA\",\n  \"description\": \"Teaching assistant role\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Role returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdRoleId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Roles",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/role",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Role by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/role/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Role",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/role/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role",
+                "2"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Updated student role description\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Role",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/role/{{createdRoleId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role",
+                "{{createdRoleId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Permissions",
+      "item": [
+        {
+          "name": "Create Permission",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/permission",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permission"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Update\",\n  \"description\": \"Can update resources\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Permission returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdPermissionId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Permissions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/permission",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permission"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Permission by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/permission/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permission",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Permission",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/permission/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permission",
+                "2"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Updated read permission description\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Permission",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/permission/{{createdPermissionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permission",
+                "{{createdPermissionId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. User Roles",
+      "item": [
+        {
+          "name": "Create User Role",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-role",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-role"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 5,\n  \"roleId\": 2\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create User Role returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdUserRoleId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All User Roles",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-role",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-role"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Role by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-role/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-role",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete User Role",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/user-role/{{createdUserRoleId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-role",
+                "{{createdUserRoleId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Role Permissions",
+      "item": [
+        {
+          "name": "Create Role Permission",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/role-permission",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role-permission"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": 2,\n  \"permissionId\": 1\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Role Permission returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdRolePermissionId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Role Permissions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/role-permission",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role-permission"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Role Permission by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/role-permission/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role-permission",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Role Permission",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/role-permission/{{createdRolePermissionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "role-permission",
+                "{{createdRolePermissionId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Courses",
+      "item": [
+        {
+          "name": "Create Course",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/courses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "courses"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Data Mining\",\n  \"credits\": 3,\n  \"duration\": 12,\n  \"startDate\": \"2026-09-01T09:00:00.000Z\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Course returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdCourseId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Courses",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/courses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "courses"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Course by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/courses/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "courses",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Course",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/courses/{{createdCourseId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "courses",
+                "{{createdCourseId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Data Mining Updated\",\n  \"credits\": 4\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Course",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/courses/{{createdCourseId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "courses",
+                "{{createdCourseId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. User Courses",
+      "item": [
+        {
+          "name": "Create User Course",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-course",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-course"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 5,\n  \"courseId\": 1,\n  \"relationType\": \"ta\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create User Course returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdUserCourseId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All User Courses",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-course",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-course"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Course by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-course/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-course",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User Course",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-course/{{createdUserCourseId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-course",
+                "{{createdUserCourseId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"relationType\": \"student\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User Course",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/user-course/{{createdUserCourseId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-course",
+                "{{createdUserCourseId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Experience Badges",
+      "item": [
+        {
+          "name": "Create Experience Badge",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/experience-badge",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "experience-badge"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Master\",\n  \"minLevel\": 25,\n  \"message\": \"Reached advanced mastery\",\n  \"associatePrices\": \"Premium avatar\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Experience Badge returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdExperienceBadgeId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Experience Badges",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/experience-badge",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "experience-badge"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Experience Badge by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/experience-badge/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "experience-badge",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Experience Badge",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/experience-badge/{{createdExperienceBadgeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "experience-badge",
+                "{{createdExperienceBadgeId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Reached advanced mastery updated\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Experience Badge",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/experience-badge/{{createdExperienceBadgeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "experience-badge",
+                "{{createdExperienceBadgeId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. User Badges",
+      "item": [
+        {
+          "name": "Create User Badge",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-badge",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-badge"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 5,\n  \"experienceBadgeId\": 1,\n  \"dateAcquired\": \"2026-09-15T10:00:00.000Z\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create User Badge returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdUserBadgeId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All User Badges",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-badge",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-badge"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Badge by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-badge/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-badge",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User Badge",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-badge/{{createdUserBadgeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-badge",
+                "{{createdUserBadgeId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dateAcquired\": \"2026-10-01T08:00:00.000Z\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User Badge",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/user-badge/{{createdUserBadgeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-badge",
+                "{{createdUserBadgeId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "10. Supplementary Sessions",
+      "item": [
+        {
+          "name": "Create Supplementary Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/supplementary-sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "supplementary-sessions"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestedDate\": \"2026-09-20T15:00:00.000Z\",\n  \"completed\": \"false\",\n  \"topic\": \"Advanced integrals\",\n  \"virtual\": \"true\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Supplementary Session returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdSupplementarySessionId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Supplementary Sessions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/supplementary-sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "supplementary-sessions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Supplementary Session by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/supplementary-sessions/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "supplementary-sessions",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Supplementary Session",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/supplementary-sessions/{{createdSupplementarySessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "supplementary-sessions",
+                "{{createdSupplementarySessionId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"completed\": \"true\",\n  \"topic\": \"Advanced integrals updated\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Supplementary Session",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/supplementary-sessions/{{createdSupplementarySessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "supplementary-sessions",
+                "{{createdSupplementarySessionId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "11. Attendance Supp Sessions",
+      "item": [
+        {
+          "name": "Create Attendance Supp Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/attendance-supp-session",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "attendance-supp-session"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taId\": 4,\n  \"studentId\": 5,\n  \"supplementarySessionId\": 1,\n  \"attendanceNotes\": \"Student attended all topics\",\n  \"additionalHomework\": \"Review chapter 3\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Attendance Supp Session returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdAttendanceSuppSessionId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Attendance Supp Sessions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/attendance-supp-session",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "attendance-supp-session"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Attendance Supp Session by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/attendance-supp-session/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "attendance-supp-session",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Attendance Supp Session",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/attendance-supp-session/{{createdAttendanceSuppSessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "attendance-supp-session",
+                "{{createdAttendanceSuppSessionId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attendanceNotes\": \"Student attended and improved\",\n  \"additionalHomework\": \"Solve exercises 10-15\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Attendance Supp Session",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/attendance-supp-session/{{createdAttendanceSuppSessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "attendance-supp-session",
+                "{{createdAttendanceSuppSessionId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "12. Posts",
+      "item": [
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/post",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "post"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"title\": \"Question about NestJS\",\n  \"question\": \"How do guards work in nested routes?\",\n  \"dateAdded\": \"2026-09-05T10:00:00.000Z\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Post returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdPostId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Posts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/post",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "post"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Post by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/post/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "post",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Post",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/post/{{createdPostId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "post",
+                "{{createdPostId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Question about NestJS Updated\",\n  \"question\": \"How do guards and interceptors work together?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/post/{{createdPostId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "post",
+                "{{createdPostId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "13. Replies",
+      "item": [
+        {
+          "name": "Create Reply",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reply",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"postId\": 1,\n  \"userId\": 4,\n  \"replyMessage\": \"Use guards at controller and route level\",\n  \"dateAdded\": \"2026-09-06T12:00:00.000Z\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Create Reply returns 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "pm.collectionVariables.set('createdReplyId', response.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Replies",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/reply",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Reply by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/reply/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Reply",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reply/{{createdReplyId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply",
+                "{{createdReplyId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"replyMessage\": \"Use guards and role decorators at route level\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Like Reply",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reply/{{createdReplyId}}/like",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply",
+                "{{createdReplyId}}",
+                "like"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          }
+        },
+        {
+          "name": "Validate Reply",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reply/{{createdReplyId}}/validate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply",
+                "{{createdReplyId}}",
+                "validate"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          }
+        },
+        {
+          "name": "Delete Reply",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/reply/{{createdReplyId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reply",
+                "{{createdReplyId}}"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

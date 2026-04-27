@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="90A17B5C-DA62-9ADF-6C59-10F25DF04C2A" containerWithKeyObject="A9E12F20-0991-2003-9456-90450447AB29" localFKIndex="17ABF802-2E8F-2E76-7C6C-ADFD3B0978F2" name="ROLES_PERMISSIONS_PERMISSIONS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:44 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<referredTableLongName>PERMISSIONS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4DE1A5ED-F654-26B2-3A31-1DA4816E3F37</referredTableID>
+<keyObject>FF9EC4F9-2E85-4F18-002A-1578620BE691</keyObject>
+<referredKeyID>FF9EC4F9-2E85-4F18-002A-1578620BE691</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A9E12F20-0991-2003-9456-90450447AB29" name="ROLES_PERMISSIONS">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:27:11 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="48294DB7-4C8C-32F1-3DFF-AC4393071ECE">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:23:13 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLES_id" id="896BC0E3-AF7E-0FD6-71D1-301A403474C5">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:40 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A3DA2761-28D6-76E3-AF41-C7AA064295C4" referredColumn="4ED19312-239B-4EDD-142E-FFD7548F3060"/>
+</associations>
+</Column>
+<Column name="PERMISSIONS_id" id="3BBA191F-43E2-FA27-35D0-52477B366D93">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:44 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="90A17B5C-DA62-9ADF-6C59-10F25DF04C2A" referredColumn="153E9AE8-3B87-213A-C100-265BFC59B3DD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BB096B93-51E6-6D7D-D4E5-9EF3A8022A3D" name="ROLES_PERMISSIONS_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-25 20:23:13 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48294DB7-4C8C-32F1-3DFF-AC4393071ECE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D58A048-A8E2-C504-8A05-1CC9E4BFF8A3" name="ROLES_PERMISSIONS__UN">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:38:27 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="896BC0E3-AF7E-0FD6-71D1-301A403474C5"/>
+<colUsage columnID="3BBA191F-43E2-FA27-35D0-52477B366D93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ABE773B7-FBBF-9EC7-420B-D4D75CCE4FF3" name="ROLES_PERMISSIONS_ROLES_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:40 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="896BC0E3-AF7E-0FD6-71D1-301A403474C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="17ABF802-2E8F-2E76-7C6C-ADFD3B0978F2" name="ROLES_PERMISSIONS_PERMISSIONS_FK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:37:44 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3BBA191F-43E2-FA27-35D0-52477B366D93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C4840415-C98A-1CC9-24D4-91B743795905" name="EXPERIENCE_BADGES">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:04:37 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2E8AFC35-8429-8A2D-C5DE-CF6D2052C3F5">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:10:59 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="80621929-A4E6-A0AC-070C-2E4780B4FF1A">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:18:38 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="min_level" id="65579384-2FE1-3AE4-F4EC-EC4307CB85FC">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:18:38 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="message" id="056E7332-CDE8-ED96-6C22-FC9A2B219860">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:24:20 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="associated_prices" id="DB71C743-7EBC-137C-972D-CCB544065315">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:18:38 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="395B2678-4C2D-3CDC-429F-2BBEFABBC1EF" name="EXPERIENCE_BADGES_PK">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 21:11:13 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E8AFC35-8429-8A2D-C5DE-CF6D2052C3F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

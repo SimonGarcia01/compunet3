@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="compunet 3 project" id="EA9CD947-2EE8-0B34-D5EE-7F1C42681CEF" version="3.5">
+<createdBy>kracr</createdBy>
+<createdTime>2026-03-24 19:22:15 UTC</createdTime>
+<ownerDesignName>compunet 3 project</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>EA9CD947-2EE8-0B34-D5EE-7F1C42681CEF</designId>
+</OSDM_Design>
