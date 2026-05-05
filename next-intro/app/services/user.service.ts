@@ -3,7 +3,7 @@ import apiService from './api.service';
 
 const userService = {
 	getUsers: async () => {
-		const users = apiService.get<User[]>(`?results=20`);
+		const users = apiService.get<User>(`?results=20`);
 		return users;
 	},
 };

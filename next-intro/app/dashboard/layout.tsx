@@ -7,9 +7,11 @@ export default function DashboardLayout({
 }>) {
 	return (
 		<div className="bg-slate-100 overflow-y-scroll w-screen h-screen text-slate-300 selection:bg-blue-600 selection:text-white">
-			<div className="flex">
+			<div className="flex h-screen">
 				<Sidebar />
-				<div className="p-2 w-full text-slate-900">{children}</div>
+				<div className="p-2 w-full text-slate-900 overflow-y-scroll">
+					{children}
+				</div>
 			</div>
 		</div>
 	);

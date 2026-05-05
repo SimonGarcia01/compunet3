@@ -1,16 +1,21 @@
 'use client';
 
-import { User } from '@/app/interfaces/user-response.interface';
+import { Result } from '@/app/interfaces/user-response.interface';
 import userService from '@/app/services/user.service';
-import { useEffect } from 'react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function MainPage() {
-	const users: User[] = [];
+	const [users, setUsers] = useState<Result[]>([]);
 
 	useEffect(() => {
 		const getUsers = async () => {
-			const users = await userService.getUsers();
-			return users;
+			try {
+				const userResponse = await userService.getUsers();
+				setUsers(userResponse.results);
+			} catch (error) {
+				console.error('Error fetching users:', error);
+			}
 		};
 
 		getUsers();
@@ -35,22 +40,34 @@ export default function MainPage() {
 							<tbody>
 								{users
 									? users.map((user) => (
-											<tr>
+											<tr key={user.email}>
 												<td className="p-3">
-													{user.}
-												</td>
-												<td className="p-3">Female</td>
-												<td className="p-3">
-													Gulliver Street
+													{user.name.first}{' '}
+													{user.name.last}
 												</td>
 												<td className="p-3">
-													dianita.linda@gmail.com
+													{user.gender}
 												</td>
 												<td className="p-3">
-													3188374730
+													{user.location.street.name}{' '}
+													{user.location.postcode}
 												</td>
 												<td className="p-3">
-													http://photo.com
+													{user.email}
+												</td>
+												<td className="p-3">
+													{user.cell}
+												</td>
+												<td className="p-3">
+													<Image
+														src={
+															user.picture
+																.thumbnail
+														}
+														alt={user.name.first}
+														width={48}
+														height={48}
+													/>
 												</td>
 											</tr>
 										))
