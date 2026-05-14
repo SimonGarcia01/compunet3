@@ -16,7 +16,7 @@ import { AuthModule } from './auth/auth.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
-      synchronize: true, //Solo usarla en ambientes bajos, en prod hacer migraciones
+      synchronize: true //Solo usarla en ambientes bajos, en prod hacer migraciones
     }),
     StudentsModule,
     SeedModule,
