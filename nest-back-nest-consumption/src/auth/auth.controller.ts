@@ -1,4 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Headers, SetMetadata } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  Req,
+  Headers,
+  SetMetadata,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
@@ -20,16 +32,16 @@ export class AuthController {
   }
 
   @Post('login')
-  login(@Body() login: LoginDto){
+  login(@Body() login: LoginDto) {
     return this.authService.login(login);
   }
 
   @Get('private')
   @Auth(ValidRoles.admin)
-  testPrivate(){
+  testPrivate() {
     return {
       ok: true,
-      message: 'logged in'
-    }
+      message: 'logged in',
+    };
   }
 }
