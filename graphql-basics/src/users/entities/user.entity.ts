@@ -19,14 +19,14 @@ export class User {
 	@Column({
 		type: 'text',
 		array: true,
-		default: ['teacher'],
+		default: ['teacher']
 	})
 	@Field(() => [String])
 	roles!: string[];
 
 	@Column({
 		type: 'boolean',
-		default: true,
+		default: true
 	})
 	@Field(() => Boolean)
 	isActive!: boolean;

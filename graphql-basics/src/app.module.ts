@@ -12,7 +12,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 		ConfigModule.forRoot(),
 		GraphQLModule.forRoot<ApolloDriverConfig>({
 			driver: ApolloDriver,
-			autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+			autoSchemaFile: join(process.cwd(), 'src/schema.gql')
 		}),
 		TypeOrmModule.forRoot({
 			type: 'postgres',
@@ -22,10 +22,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 			username: process.env.DB_USER,
 			password: process.env.DB_PASSWORD,
 			autoLoadEntities: true,
-			synchronize: true, //Only use this in development, not in production
-		}),
+			synchronize: true //Only use this in development, not in production
+		})
 	],
 	controllers: [],
-	providers: [],
+	providers: []
 })
 export class AppModule {}
