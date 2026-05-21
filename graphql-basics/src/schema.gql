@@ -4,6 +4,7 @@
 
 type User {
   id: ID!
+  email: String!
   fullName: String!
   password: String!
   roles: [String!]!
@@ -12,4 +13,14 @@ type User {
 
 type Query {
   user(id: String!): User!
+}
+
+type Mutation {
+  signup(signupInput: SignupInput!): User!
+}
+
+input SignupInput {
+  email: String!
+  password: String!
+  fullName: String!
 }

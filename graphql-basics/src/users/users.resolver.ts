@@ -1,6 +1,7 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
+import { SignupInput } from './dto/signup.input';
 
 @Resolver('User')
 export class UsersResolver {
@@ -8,7 +9,11 @@ export class UsersResolver {
 
 	@Query(() => User, { name: 'user' })
 	findOne(@Args('id', { type: () => String }) id: string) {
-		console.log(id);
-		throw new Error('Method not implemented.');
+		return this.usersService.findOne(id);
+	}
+
+	@Mutation(() => User, { name: 'signup' })
+	signup(@Args('signupInput') signupInput: SignupInput) {
+		return this.usersService.signup(signupInput);
 	}
 }
