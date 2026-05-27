@@ -2,7 +2,8 @@ import {
 	BadRequestException,
 	CanActivate,
 	ExecutionContext,
-	ForbiddenException
+	ForbiddenException,
+	Injectable
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { GqlExecutionContext } from '@nestjs/graphql';
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 import { META_DATA } from 'src/users/decorators/role-protected.decorator';
 import { User } from 'src/users/entities/user.entity';
 
+@Injectable()
 export class UserRoleGuard implements CanActivate {
 	constructor(private readonly reflector: Reflector) {}
 

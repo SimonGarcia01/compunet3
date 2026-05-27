@@ -70,6 +70,16 @@ export class UsersService {
 		}
 	}
 
+	async findAll() {
+		try {
+			const user = await this.userRepository.find();
+			user.forEach((user) => delete user.password);
+			return user;
+		} catch (error) {
+			this.handleExceptions(error);
+		}
+	}
+
 	private async findByEmail(email: string) {
 		try {
 			return await this.userRepository.findOneByOrFail({ email });

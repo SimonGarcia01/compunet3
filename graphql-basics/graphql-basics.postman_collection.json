@@ -1,0 +1,435 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "GraphQL Basics - NestJS",
+    "description": "Colección de operaciones GraphQL para el proyecto NestJS con autenticación JWT.\n\n**URL base:** `http://localhost:9000/graphql`\n\n**Cómo usar:**\n1. Ejecuta **signup** o **login** — el token se guarda automáticamente en la variable `token`.\n2. Usa **user** (query) con el token ya guardado.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9000/graphql",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string",
+      "description": "JWT token guardado automáticamente al hacer signup o login"
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "type": "string",
+      "description": "ID del usuario guardado automáticamente al hacer signup o login"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "description": "Operaciones de autenticación: registro e inicio de sesión.",
+      "item": [
+        {
+          "name": "signup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.data && res.data.signup) {",
+                  "    pm.collectionVariables.set('token', res.data.signup.token);",
+                  "    pm.collectionVariables.set('userId', res.data.signup.user.id);",
+                  "    console.log('✅ Token guardado:', res.data.signup.token);",
+                  "    console.log('✅ UserId guardado:', res.data.signup.user.id);",
+                  "}",
+                  "",
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Signup exitoso', () => {",
+                  "    pm.expect(res.data.signup).to.have.property('token');",
+                  "    pm.expect(res.data.signup).to.have.property('user');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation Signup($signupInput: SignUpInput!) {\n  signup(signupInput: $signupInput) {\n    token\n    user {\n      id\n      fullName\n      email\n      roles\n      isActive\n    }\n  }\n}",
+                "variables": "{\n  \"signupInput\": {\n    \"email\": \"usuario@ejemplo.com\",\n    \"password\": \"Passw0rd123\",\n    \"fullName\": \"Usuario Ejemplo\"\n  }\n}"
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": ["{{baseUrl}}"]
+            },
+            "description": "Registra un nuevo usuario en el sistema.\n\n**Campos requeridos:**\n- `email` — correo electrónico válido\n- `password` — mínimo 6 caracteres\n- `fullName` — nombre completo (no vacío)\n\n**Retorna:** `AuthResponse` con el token JWT y los datos del usuario.\n\n> El token y el userId se guardan automáticamente en las variables de la colección."
+          },
+          "response": [
+            {
+              "name": "Signup exitoso",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Signup($signupInput: SignUpInput!) {\n  signup(signupInput: $signupInput) {\n    token\n    user {\n      id\n      fullName\n      email\n      roles\n      isActive\n    }\n  }\n}",
+                    "variables": "{\n  \"signupInput\": {\n    \"email\": \"usuario@ejemplo.com\",\n    \"password\": \"Passw0rd123\",\n    \"fullName\": \"Usuario Ejemplo\"\n  }\n}"
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"data\": {\n    \"signup\": {\n      \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n      \"user\": {\n        \"id\": \"uuid-generado\",\n        \"fullName\": \"Usuario Ejemplo\",\n        \"email\": \"usuario@ejemplo.com\",\n        \"roles\": [\"teacher\"],\n        \"isActive\": true\n      }\n    }\n  }\n}"
+            },
+            {
+              "name": "Error - Email inválido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Signup($signupInput: SignUpInput!) {\n  signup(signupInput: $signupInput) {\n    token\n    user { id }\n  }\n}",
+                    "variables": "{\n  \"signupInput\": {\n    \"email\": \"no-es-email\",\n    \"password\": \"123456\",\n    \"fullName\": \"Test\"\n  }\n}"
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"Bad Request Exception\",\n      \"extensions\": {\n        \"code\": \"BAD_USER_INPUT\"\n      }\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.data && res.data.login) {",
+                  "    pm.collectionVariables.set('token', res.data.login.token);",
+                  "    pm.collectionVariables.set('userId', res.data.login.user.id);",
+                  "    console.log('✅ Token guardado:', res.data.login.token);",
+                  "    console.log('✅ UserId guardado:', res.data.login.user.id);",
+                  "}",
+                  "",
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Login exitoso', () => {",
+                  "    pm.expect(res.data.login).to.have.property('token');",
+                  "    pm.expect(res.data.login).to.have.property('user');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation Login($loginInput: LoginInput!) {\n  login(loginInput: $loginInput) {\n    token\n    user {\n      id\n      fullName\n      email\n      roles\n      isActive\n    }\n  }\n}",
+                "variables": "{\n  \"loginInput\": {\n    \"email\": \"usuario@ejemplo.com\",\n    \"password\": \"Passw0rd123\"\n  }\n}"
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": ["{{baseUrl}}"]
+            },
+            "description": "Autentica un usuario existente con email y contraseña.\n\n**Campos requeridos:**\n- `email` — correo electrónico válido\n- `password` — mínimo 6 caracteres\n\n**Retorna:** `AuthResponse` con el token JWT y los datos del usuario.\n\n> El token y el userId se guardan automáticamente en las variables de la colección."
+          },
+          "response": [
+            {
+              "name": "Login exitoso",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Login($loginInput: LoginInput!) {\n  login(loginInput: $loginInput) {\n    token\n    user {\n      id\n      fullName\n      email\n      roles\n      isActive\n    }\n  }\n}",
+                    "variables": "{\n  \"loginInput\": {\n    \"email\": \"usuario@ejemplo.com\",\n    \"password\": \"Passw0rd123\"\n  }\n}"
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"data\": {\n    \"login\": {\n      \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n      \"user\": {\n        \"id\": \"uuid-del-usuario\",\n        \"fullName\": \"Usuario Ejemplo\",\n        \"email\": \"usuario@ejemplo.com\",\n        \"roles\": [\"teacher\"],\n        \"isActive\": true\n      }\n    }\n  }\n}"
+            },
+            {
+              "name": "Error - Credenciales inválidas",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Login($loginInput: LoginInput!) {\n  login(loginInput: $loginInput) {\n    token\n    user { id }\n  }\n}",
+                    "variables": "{\n  \"loginInput\": {\n    \"email\": \"usuario@ejemplo.com\",\n    \"password\": \"contraseña-incorrecta\"\n  }\n}"
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"Credentials are not valid\",\n      \"extensions\": {\n        \"code\": \"UNAUTHENTICATED\"\n      }\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "description": "Queries relacionadas con usuarios. Algunas requieren el token JWT en el header Authorization.",
+      "item": [
+        {
+          "name": "getAll (solo admin)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Lista de usuarios retornada', () => {",
+                  "    pm.expect(res.data).to.have.property('getAll');",
+                  "    pm.expect(res.data.getAll).to.be.an('array');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "description": "Token JWT de un usuario con rol 'admin'"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetAll {\n  getAll {\n    id\n    fullName\n    email\n    roles\n    isActive\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": ["{{baseUrl}}"]
+            },
+            "description": "Retorna la lista completa de usuarios.\n\n⚠️ **Requiere rol `admin`** — el token JWT debe pertenecer a un usuario con `roles: [\"admin\"]`.\n\n**Header requerido:** `Authorization: Bearer {{token}}`\n\n**Roles disponibles:** `admin`, `teacher`, `superadmin`"
+          },
+          "response": [
+            {
+              "name": "Lista de usuarios (admin)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetAll {\n  getAll {\n    id\n    fullName\n    email\n    roles\n    isActive\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"data\": {\n    \"getAll\": [\n      {\n        \"id\": \"uuid-1\",\n        \"fullName\": \"Admin User\",\n        \"email\": \"admin@ejemplo.com\",\n        \"roles\": [\"admin\"],\n        \"isActive\": true\n      },\n      {\n        \"id\": \"uuid-2\",\n        \"fullName\": \"Teacher User\",\n        \"email\": \"teacher@ejemplo.com\",\n        \"roles\": [\"teacher\"],\n        \"isActive\": true\n      }\n    ]\n  }\n}"
+            },
+            {
+              "name": "Error - Sin permisos (no es admin)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetAll {\n  getAll {\n    id\n    fullName\n    email\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"Forbidden resource\",\n      \"extensions\": {\n        \"code\": \"FORBIDDEN\"\n      }\n    }\n  ]\n}"
+            },
+            {
+              "name": "Error - Sin token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetAll {\n  getAll {\n    id\n    fullName\n    email\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"Unauthorized\",\n      \"extensions\": {\n        \"code\": \"UNAUTHENTICATED\"\n      }\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "user (findOne)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Usuario encontrado', () => {",
+                  "    pm.expect(res.data).to.have.property('user');",
+                  "    pm.expect(res.data.user).to.have.property('id');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "description": "Token JWT obtenido del login o signup"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query FindUser($id: String!) {\n  user(id: $id) {\n    id\n    fullName\n    email\n    roles\n    isActive\n  }\n}",
+                "variables": "{\n  \"id\": \"{{userId}}\"\n}"
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": ["{{baseUrl}}"]
+            },
+            "description": "Busca un usuario por su UUID.\n\n**Parámetros:**\n- `id` — UUID del usuario (se autocompleta con `{{userId}}` guardado del login/signup)\n\n**Header requerido:** `Authorization: Bearer {{token}}`\n\n> Asegúrate de haber hecho login o signup antes para tener el token y userId disponibles."
+          },
+          "response": [
+            {
+              "name": "Usuario encontrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query FindUser($id: String!) {\n  user(id: $id) {\n    id\n    fullName\n    email\n    roles\n    isActive\n  }\n}",
+                    "variables": "{\n  \"id\": \"{{userId}}\"\n}"
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"data\": {\n    \"user\": {\n      \"id\": \"uuid-del-usuario\",\n      \"fullName\": \"Usuario Ejemplo\",\n      \"email\": \"usuario@ejemplo.com\",\n      \"roles\": [\"teacher\"],\n      \"isActive\": true\n    }\n  }\n}"
+            },
+            {
+              "name": "Error - Usuario no encontrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query FindUser($id: String!) {\n  user(id: $id) {\n    id\n    fullName\n    email\n  }\n}",
+                    "variables": "{\n  \"id\": \"id-que-no-existe\"\n}"
+                  }
+                },
+                "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"User id-que-no-existe not found\",\n      \"extensions\": {\n        \"code\": \"INTERNAL_SERVER_ERROR\"\n      }\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

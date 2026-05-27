@@ -4,6 +4,8 @@ import { User } from './entities/user.entity';
 import { SignupInput } from './dto/signup.input';
 import { LoginInput } from './dto/login.input';
 import { AuthResponse } from './types/auth-response.type';
+import { ValidRoles } from './enums/valid-roles.enum';
+import { Auth } from './decorators/auth-decorator';
 
 @Resolver('User')
 export class UsersResolver {
@@ -21,6 +23,12 @@ export class UsersResolver {
 
 	@Mutation(() => AuthResponse, { name: 'login' })
 	async login(@Args('loginInput') loginInput: LoginInput) {
-		return await this.usersService.login(loginInput);
+		return;
+	}
+
+	@Query(() => [User], { name: 'getAll' })
+	@Auth(ValidRoles.ADMIN)
+	findAll() {
+		return this.usersService.findAll();
 	}
 }
