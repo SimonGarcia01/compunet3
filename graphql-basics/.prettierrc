@@ -8,7 +8,7 @@
 	"bracketSpacing": true,
 	"arrowParens": "always",
 	"printWidth": 100,
-	"endOfLine": "lf",
+	"endOfLine": "auto",
 	"quoteProps": "as-needed",
 	"proseWrap": "preserve",
 	"embeddedLanguageFormatting": "auto"

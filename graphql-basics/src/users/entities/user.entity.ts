@@ -19,7 +19,7 @@ export class User {
 
 	@Column()
 	@Field(() => String)
-	password!: string;
+	password?: string;
 
 	@Column({
 		type: 'text',

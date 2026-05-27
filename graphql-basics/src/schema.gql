@@ -11,16 +11,27 @@ type User {
   isActive: Boolean!
 }
 
+type AuthResponse {
+  user: User!
+  token: String!
+}
+
 type Query {
   user(id: String!): User!
 }
 
 type Mutation {
   signup(signupInput: SignupInput!): User!
+  login(loginInput: LoginInput!): AuthResponse!
 }
 
 input SignupInput {
   email: String!
   password: String!
   fullName: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
 }
