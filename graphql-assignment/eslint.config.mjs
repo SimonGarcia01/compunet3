@@ -1,26 +1,27 @@
 // @ts-check
 import eslint from '@eslint/js';
 import { defineConfig } from 'eslint/config';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default defineConfig([
     eslint.configs.recommended,
-    ...tseslint.configs.recommendedTypeChecked,
     {
         plugins: {
             import: importPlugin,
         },
         languageOptions: {
+            parser: '@typescript-eslint/parser',
             globals: {
                 ...globals.node,
                 ...globals.jest,
             },
             parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname,
+                project: './tsconfig.json',
+                tsconfigRootDir: process.cwd(),
+                ecmaVersion: 'latest',
+                sourceType: 'module',
             },
         },
         settings: {
@@ -32,8 +33,6 @@ export default defineConfig([
                 node: true,
             },
         },
-    },
-    {
         rules: {
             '@typescript-eslint/no-explicit-any': 'off',
             '@typescript-eslint/no-floating-promises': 'warn',
@@ -56,7 +55,6 @@ export default defineConfig([
                     'newlines-between': 'always',
                 },
             ],
-
             'prettier/prettier': [
                 'error',
                 {},
@@ -66,7 +64,7 @@ export default defineConfig([
             ],
         },
     },
-    eslintPluginPrettierRecommended,
+    prettierRecommended,
     {
         ignores: ['dist/**', 'build/**', 'vite.config.ts', 'eslint.config.mjs'],
     },
