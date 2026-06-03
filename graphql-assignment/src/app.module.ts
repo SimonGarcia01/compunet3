@@ -2,10 +2,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from '@/auth/auth.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { PostsModule } from './posts/posts.module';
+import { PostsModule } from '@/posts/posts.module';
 
 type SupportedDbTypes = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mongodb' | 'oracle';
 

@@ -3,6 +3,6 @@ import { RolesService } from './roles.service';
 import { RolesResolver } from './roles.resolver';
 
 @Module({
-  providers: [RolesResolver, RolesService],
+    providers: [RolesResolver, RolesService],
 })
 export class RolesModule {}

@@ -4,15 +4,20 @@ import { defineConfig } from 'eslint/config';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
+import tsParser from '@typescript-eslint/parser';
 
 export default defineConfig([
+    {
+        ignores: ['dist/**', 'build/**', 'vite.config.ts', 'eslint.config.mjs'],
+    },
     eslint.configs.recommended,
     {
+        files: ['**/*.ts'],
         plugins: {
             import: importPlugin,
         },
         languageOptions: {
-            parser: '@typescript-eslint/parser',
+            parser: tsParser,
             globals: {
                 ...globals.node,
                 ...globals.jest,
@@ -64,8 +69,8 @@ export default defineConfig([
             ],
         },
     },
-    prettierRecommended,
     {
-        ignores: ['dist/**', 'build/**', 'vite.config.ts', 'eslint.config.mjs'],
+        files: ['**/*.ts'],
+        ...prettierRecommended,
     },
 ]);

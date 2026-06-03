@@ -69,6 +69,7 @@
         "ts-jest": "^29.2.5",
         "ts-loader": "^9.5.2",
         "ts-node": "^10.9.2",
+        "eslint-import-resolver-typescript": "^3.5.3",
         "tsconfig-paths": "^4.2.0",
         "typescript": "^6.0.3"
     },
