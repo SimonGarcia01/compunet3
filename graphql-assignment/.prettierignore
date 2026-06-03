@@ -11,3 +11,4 @@ pnpm-lock.yaml
 .vscode
 /.husky
 /.git
+bun.lock

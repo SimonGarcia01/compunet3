@@ -1,15 +1,21 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { AuthModule } from './auth/auth.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
+import { PostsModule } from './posts/posts.module';
 
 type SupportedDbTypes = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mongodb' | 'oracle';
 
 @Module({
     imports: [
         ConfigModule.forRoot({ isGlobal: true }),
+        GraphQLModule.forRoot<ApolloDriverConfig>({
+            driver: ApolloDriver,
+            autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+        }),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
@@ -24,8 +30,10 @@ type SupportedDbTypes = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mongodb' 
                 synchronize: configService.get<boolean>('DB_SYNCHRONIZE') ?? false,
             }),
         }),
+        AuthModule,
+        PostsModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {}
