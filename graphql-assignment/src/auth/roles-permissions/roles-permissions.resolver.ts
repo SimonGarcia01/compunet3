@@ -1,35 +1,36 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { RolesPermissionsService } from './roles-permissions.service';
-import { RolesPermission } from './entities/roles-permission.entity';
-import { CreateRolesPermissionInput } from './dto/create-roles-permission.input';
-import { UpdateRolesPermissionInput } from './dto/update-roles-permission.input';
 
-@Resolver(() => RolesPermission)
+import { CreateRolePermissionInput } from './dto/create-role-permission.input';
+import { UpdateRolePermissionInput } from './dto/update-role-permission.input';
+import { RolePermission } from './entities/role-permission.entity';
+
+@Resolver(() => RolePermission)
 export class RolesPermissionsResolver {
-    constructor(private readonly rolesPermissionsService: RolesPermissionsService) {}
+    constructor(private readonly RolesPermissionsService: RolesPermissionsService) {}
 
-    @Mutation(() => RolesPermission)
-    createRolesPermission(@Args('createRolesPermissionInput') createRolesPermissionInput: CreateRolesPermissionInput) {
-        return this.rolesPermissionsService.create(createRolesPermissionInput);
+    @Mutation(() => RolePermission)
+    createRolePermission(@Args('createRolePermissionInput') createRolePermissionInput: CreateRolePermissionInput) {
+        return this.RolesPermissionsService.create(createRolePermissionInput);
     }
 
-    @Query(() => [RolesPermission], { name: 'rolesPermissions' })
+    @Query(() => [RolePermission], { name: 'RolePermissions' })
     findAll() {
-        return this.rolesPermissionsService.findAll();
+        return this.RolesPermissionsService.findAll();
     }
 
-    @Query(() => RolesPermission, { name: 'rolesPermission' })
+    @Query(() => RolePermission, { name: 'RolePermission' })
     findOne(@Args('id', { type: () => Int }) id: number) {
-        return this.rolesPermissionsService.findOne(id);
+        return this.RolesPermissionsService.findOne(id);
     }
 
-    @Mutation(() => RolesPermission)
-    updateRolesPermission(@Args('updateRolesPermissionInput') updateRolesPermissionInput: UpdateRolesPermissionInput) {
-        return this.rolesPermissionsService.update(updateRolesPermissionInput.id, updateRolesPermissionInput);
+    @Mutation(() => RolePermission)
+    updateRolePermission(@Args('updateRolePermissionInput') updateRolePermissionInput: UpdateRolePermissionInput) {
+        return this.RolesPermissionsService.update(updateRolePermissionInput.id, updateRolePermissionInput);
     }
 
-    @Mutation(() => RolesPermission)
-    removeRolesPermission(@Args('id', { type: () => Int }) id: number) {
-        return this.rolesPermissionsService.remove(id);
+    @Mutation(() => RolePermission)
+    removeRolePermission(@Args('id', { type: () => Int }) id: number) {
+        return this.RolesPermissionsService.remove(id);
     }
 }
