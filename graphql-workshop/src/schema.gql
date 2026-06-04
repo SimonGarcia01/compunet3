@@ -48,6 +48,7 @@ type User {
   id: Int!
   fullName: String!
   email: String!
+  isActive: Boolean!
   role: Role!
   posts: [Post!]
 }
@@ -97,14 +98,16 @@ input CreateUserInput {
   fullName: String!
   email: String!
   password: String!
-  roleId: Int!
+  roleId: Int = 2
+  isActive: Boolean = true
 }
 
 input UpdateUserInput {
   fullName: String
   email: String
   password: String
-  roleId: Int
+  roleId: Int = 2
+  isActive: Boolean = true
   id: Int!
 }
 

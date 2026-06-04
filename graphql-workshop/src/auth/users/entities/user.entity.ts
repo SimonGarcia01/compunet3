@@ -21,6 +21,10 @@ export class User {
     @Column({ name: 'encrypted_password', length: 255, nullable: false })
     encryptedPassword!: string;
 
+    @Field(() => Boolean)
+    @Column({ name: 'is_active', default: true })
+    isActive!: boolean;
+
     @Field(() => Role, { nullable: false })
     @ManyToOne(() => Role, (role) => role.users, { nullable: false, eager: true })
     @JoinColumn({ name: 'role_id' })

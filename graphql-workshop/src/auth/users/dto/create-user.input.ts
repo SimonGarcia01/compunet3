@@ -1,5 +1,5 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
-import { IsEmail, IsInt, IsNotEmpty, IsPositive, IsString, Length } from 'class-validator';
+import { IsBoolean, IsEmail, IsInt, IsNotEmpty, IsOptional, IsPositive, IsString, Length } from 'class-validator';
 
 @InputType()
 export class CreateUserInput {
@@ -20,8 +20,14 @@ export class CreateUserInput {
     @Length(8, 100)
     password!: string;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true, defaultValue: 2 })
     @IsInt()
     @IsPositive()
-    roleId!: number;
+    @IsOptional()
+    roleId?: number;
+
+    @Field(() => Boolean, { nullable: true, defaultValue: true })
+    @IsBoolean()
+    @IsOptional()
+    isActive?: boolean;
 }
