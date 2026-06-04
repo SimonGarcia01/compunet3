@@ -345,6 +345,7 @@ describe('GraphQL API (e2e)', () => {
                         fullName: 'To Delete',
                         email: 'todelete@example.com',
                         password: 'password123',
+                        roleName: 'USER',
                     },
                 },
             });
