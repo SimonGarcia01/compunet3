@@ -1,17 +1,12 @@
-import { NestFactory, Reflector } from '@nestjs/core';
+import 'reflect-metadata';
+import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import { JwtAuthGuard } from './common/guards/auth.guard';
-import { PermissionsGuard } from './common/guards/permission.guard';
-import './auth/enums/graphql.enums';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 
     app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }));
-
-    const reflector: Reflector = app.get('Reflector');
-    app.useGlobalGuards(new JwtAuthGuard(reflector), new PermissionsGuard(reflector));
 
     await app.listen(process.env.PORT ?? 3001);
 }

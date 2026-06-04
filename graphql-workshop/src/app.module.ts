@@ -1,3 +1,4 @@
+import './auth/enums/graphql.enums';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
@@ -7,6 +8,9 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { PostsModule } from '@/posts/posts.module';
 import { SeedModule } from './seed/seed.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './common/guards/auth.guard';
+import { PermissionsGuard } from './common/guards/permission.guard';
 
 type SupportedDbTypes = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mongodb' | 'oracle';
 
@@ -37,6 +41,9 @@ type SupportedDbTypes = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mongodb' 
         SeedModule,
     ],
     controllers: [],
-    providers: [],
+    providers: [
+        { provide: APP_GUARD, useClass: JwtAuthGuard },
+        { provide: APP_GUARD, useClass: PermissionsGuard },
+    ],
 })
 export class AppModule {}

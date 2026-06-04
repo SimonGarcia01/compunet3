@@ -21,7 +21,7 @@ export class CreateUserInput {
     @Length(8, 100)
     password!: string;
 
-    @Field(() => RoleName, { nullable: true, defaultValue: RoleName.USER })
+    @Field(() => RoleName, { nullable: true })
     @IsEnum(RoleName)
     @IsOptional()
     roleName?: RoleName;
