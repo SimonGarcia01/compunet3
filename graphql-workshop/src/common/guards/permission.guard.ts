@@ -5,6 +5,7 @@ import { User } from '../../auth/users/entities/user.entity';
 import { PERMISSIONS_KEY } from '../decorators/permissions.decorator';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { PermissionNames } from '@/auth/enums/permission-names.enum';
+import { isSuperAdmin } from '@/auth/utils/super-admin-check.util';
 
 interface AuthenticatedRequest extends Request {
     user?: User;
@@ -34,6 +35,9 @@ export class PermissionsGuard implements CanActivate {
         const user = request.user as User;
 
         if (!user) throw new ForbiddenException('User not authenticated, user missing in the request');
+
+        //First check if it has super admin power, if it does, allow it anywhere, no need to check for permissions
+        if (isSuperAdmin(user)) return true;
 
         //Now we check if the user has the required permissions to access the route
         //Find the permissions of the user through the role and rolesPermissions

@@ -1,5 +1,5 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
-import { IsInt, IsNotEmpty, IsString, Length, Min } from 'class-validator';
+import { Field, InputType } from '@nestjs/graphql';
+import { IsNotEmpty, IsString, Length } from 'class-validator';
 
 @InputType()
 export class CreatePostInput {
@@ -14,9 +14,4 @@ export class CreatePostInput {
     @IsNotEmpty()
     @Length(1, 1000)
     content!: string;
-
-    @Field(() => Int)
-    @IsInt()
-    @Min(1)
-    authorId!: number;
 }

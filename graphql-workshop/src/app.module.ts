@@ -16,6 +16,7 @@ type SupportedDbTypes = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mongodb' 
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
             autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+            context: ({ req }) => ({ req }),
         }),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],

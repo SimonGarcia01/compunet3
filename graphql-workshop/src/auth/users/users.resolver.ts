@@ -16,11 +16,13 @@ export class UsersResolver {
         return await this.usersService.create(createUserInput);
     }
 
+    @Permissions(PermissionNames.READ_USERS)
     @Query(() => [User], { name: 'users' })
     async findAll(): Promise<User[]> {
         return await this.usersService.findAll();
     }
 
+    @Permissions(PermissionNames.READ_USERS)
     @Query(() => User, { name: 'user' })
     async findOne(@Args('id', { type: () => Int }) id: number): Promise<User> {
         return await this.usersService.findOne(id);
