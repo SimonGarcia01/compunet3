@@ -11,6 +11,7 @@ import { RolesPermissionsModule } from './roles-permissions/roles-permissions.mo
 import { User } from './users/entities/user.entity';
 import { ConfigService } from '@nestjs/config';
 import { AuthResolver } from './auth.resolver';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
     imports: [
@@ -41,6 +42,6 @@ import { AuthResolver } from './auth.resolver';
             },
         }),
     ],
-    providers: [AuthResolver, AuthService],
+    providers: [AuthResolver, AuthService, JwtStrategy],
 })
 export class AuthModule {}
