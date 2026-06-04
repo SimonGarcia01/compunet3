@@ -35,6 +35,14 @@ export class SeedService {
 
         await this.getOrCreateRolePermission(superAdminRole, superAdminPermission);
 
+        for (const permission of permissions) {
+            if (permission.name === PermissionNames.ADMIN_SUPER_POWER) {
+                await this.getOrCreateRolePermission(superAdminRole, permission);
+            } else {
+                await this.getOrCreateRolePermission(userRole, permission);
+            }
+        }
+
         const superAdminUser = await this.getOrCreateUser({
             fullName: 'Super Admin',
             email: 'superadmin@example.com',

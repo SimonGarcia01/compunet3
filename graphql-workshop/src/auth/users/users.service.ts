@@ -13,8 +13,8 @@ export class UsersService {
         return 'This action adds a new user';
     }
 
-    findAll() {
-        return `This action returns all users`;
+    async findAll(): Promise<User[]> {
+        return await this.userRepository.find();
     }
 
     findOne(id: number) {
@@ -36,6 +36,17 @@ export class UsersService {
         });
 
         if (!user) throw new NotFoundException(`User with ID ${userId} not found`);
+
+        return user;
+    }
+
+    async findOneByEmail(email: string): Promise<User> {
+        const user: User | null = await this.userRepository.findOne({
+            where: { email },
+            relations: ['role', 'role.rolesPermissions', 'role.rolesPermissions.permission'],
+        });
+
+        if (!user) throw new NotFoundException(`User with email ${email} not found`);
 
         return user;
     }
