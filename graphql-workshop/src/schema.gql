@@ -98,7 +98,7 @@ input CreateUserInput {
   fullName: String!
   email: String!
   password: String!
-  roleId: Int = 2
+  roleName: RoleName = USER
   isActive: Boolean = true
 }
 
@@ -106,7 +106,7 @@ input UpdateUserInput {
   fullName: String
   email: String
   password: String
-  roleId: Int = 2
+  roleName: RoleName = USER
   isActive: Boolean = true
   id: Int!
 }

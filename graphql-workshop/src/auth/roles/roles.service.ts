@@ -17,7 +17,10 @@ export class RolesService {
     }
 
     async findOneByName(name: RoleName): Promise<Role> {
-        const role: Role | null = await this.roleRepository.findOne({ where: { name } });
+        const role: Role | null = await this.roleRepository.findOne({
+            where: { name },
+            relations: ['rolesPermissions', 'rolesPermissions.permission'],
+        });
 
         if (!role) throw new Error(`Role with name ${name} not found`);
 

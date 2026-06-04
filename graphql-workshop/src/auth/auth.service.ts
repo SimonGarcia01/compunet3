@@ -1,11 +1,11 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from './users/users.service';
 import { RolesService } from './roles/roles.service';
 import { LoginInput } from './dtos/inputs/login.input';
 import { SignupInput } from './dtos/inputs/signup.input';
 import { AuthResponse } from './dtos/outputs/auth-response.output';
 import { JwtService } from '@nestjs/jwt';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import { RoleName } from './enums/role-names.enum';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -42,18 +42,17 @@ export class AuthService {
     }
 
     async signup(signupInput: SignupInput): Promise<AuthResponse> {
-        const existingUser = await this.usersService.findOneByEmail(signupInput.email);
+        const existingUser: User | null = await this.userRepository.findOne({ where: { email: signupInput.email } });
 
-        if (existingUser) throw new UnauthorizedException(`User with email ${signupInput.email} already exists`);
+        if (existingUser) throw new BadRequestException(`User with email ${signupInput.email} already exists`);
 
         const role = await this.rolesService.findOneByName(RoleName.USER);
 
         if (!role) throw new NotFoundException(`Default role ${RoleName.USER} not found`);
 
-        const encryptedPassword = bcrypt.hashSync(
-            signupInput.password,
-            this.configService.get<number>('SALT_ROUNDS', 10),
-        );
+        const saltRounds: number = Number(this.configService.get<number>('SALT_ROUNDS') ?? 10);
+
+        const encryptedPassword: string = await bcrypt.hash(signupInput.password, saltRounds);
 
         const newUser = this.userRepository.create({
             ...signupInput,
